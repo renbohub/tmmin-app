@@ -2,13 +2,13 @@
 @section('content')
     <style>
         .bg-alarm {
-            background-image: url('{{url("public/sites/img/alarm.gif")}}')
+            background-image: url('{{asset("public/sites/img/alarm.gif")}}')
         }
         .bg-ack{
-            background-image: url('{{url("public/sites/img/ack.png")}}')
+            background-image: url('{{asset("public/sites/img/ack.png")}}')
         }
         .bg-normal{
-            background-image: url('{{url("public/sites/img/normal.png")}}')
+            background-image: url('{{asset("public/sites/img/normal.png")}}')
         }
     </style>
     
@@ -122,7 +122,7 @@
 @endsection
 @section('script')
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script src="{{url('public/sites/js/mqtt.js')}}"></script>
+<script src="{{asset('public/sites/js/mqtt.js')}}"></script>
 <script>
     var layer = @json($layer);
     console.log(layer)

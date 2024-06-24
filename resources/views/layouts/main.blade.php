@@ -9,13 +9,13 @@
     <meta name="author" content="" />
 
     <!-- ================== BEGIN core-css ================== -->
-    <link href="{{ url('public/sites/css/vendor.min.css') }}" rel="stylesheet" />
-    <link href="{{ url('public/sites/css/app2.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('public/sites/css/vendor.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('public/sites/css/app2.min.css') }}" rel="stylesheet" />
     
     <!-- ================== END core-css ================== -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <script src="{{url('public/sites/plugins/apexcharts/dist/apexcharts.min.js')}}"></script>
+    <script src="{{asset('public/sites/plugins/apexcharts/dist/apexcharts.min.js')}}"></script>
 </head>
 
 <body>
@@ -55,7 +55,7 @@
                 <div class="menu-item dropdown dropdown-mobile-full">
                     <a href="#" data-bs-toggle="dropdown" data-bs-display="static" class="menu-link">
                         <div class="menu-img online">
-                            <img src="{{url('public/sites/img/user/profile.jpg')}}" alt="Profile" height="60" />
+                            <img src="{{asset('public/sites/img/user/profile.jpg')}}" alt="Profile" height="60" />
                         </div>
                         <div class="menu-text d-sm-block d-none">
                             
@@ -96,14 +96,14 @@
 <!-- END #app -->
 
 <!-- ================== BEGIN core-js ================== -->
-<script src="{{url('public/sites/js/vendor.min.js')}}"></script>
-<script src="{{url('public/sites/js/app.min.js')}}"></script>
+<script src="{{asset('public/sites/js/vendor.min.js')}}"></script>
+<script src="{{asset('public/sites/js/app.min.js')}}"></script>
 <!-- ================== END core-js ================== -->
 
 <!-- ================== BEGIN page-js ================== -->
-<script src="{{url('public/sites/plugins/@highlightjs/cdn-assets/highlight.min.js')}}"></script>
+<script src="{{asset('public/sites/plugins/@highlightjs/cdn-assets/highlight.min.js')}}"></script>
 
-<script src="{{url('public/sites/js/demo/highlightjs.demo.js')}}"></script>
+<script src="{{asset('public/sites/js/demo/highlightjs.demo.js')}}"></script>
 <!-- ================== END page-js ================== -->
 
 
