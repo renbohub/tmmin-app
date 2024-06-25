@@ -50,9 +50,10 @@
                             
                             <div class="card-body" style="height: 632px; overflow-x: scroll;">
                                 <!-- BEGIN title -->
-                                <table id="eventTable" class="table responsive w-100"> 
+                                <table id="eventTable" class="table responsive w-100 text-white" style=" color:white;!important"> 
                                 <thead>
                                     <tr>
+                                        <th>No</th>
                                         <th>Alarm Desc</th>
                                         <th>Start</th>
                                         <th>Ack</th>
@@ -386,18 +387,39 @@
         var table = $('#eventTable').DataTable({
             responsive: true
         });
+        function addHoursToDate(date, hours) {
+            date.setHours(date.getHours() + hours);
+            return date;
+        }
         function onMessageArrivedu(message) {
             var a = JSON.parse(message.payloadString); 
-            
+            console.log(a);
             table.clear();
 
             // Assuming 'a' is an array of event objects
             a.forEach(function(event) {
+                var x1 = new Date(event.event_start);
+                var x2 = new Date(event.event_acknowledge);
+                var x3 = new Date(event.event_end);
+
+                x1 = addHoursToDate(x1, 7);
+                x2 = addHoursToDate(x2, 7);
+                x3 = addHoursToDate(x3, 7);
+
+                // Format the Date objects as strings (ISO format without milliseconds)
+                var formattedX1 = x1.toISOString().split('.')[0];
+                var formattedX2 = x2.toISOString().split('.')[0];
+                var formattedX3 = x3.toISOString().split('.')[0];
+
+                if (formattedX2 == '1970-01-01T07:00:00') {
+                    var formattedX2 = '-'
+                }
                 var rowNode = table.row.add([
+                    event.event_id,
                     event.event_desc,
-                    event.event_start,
-                    event.event_acknowledge,
-                    event.event_end,
+                    formattedX1,
+                    formattedX2,
+                    formattedX3,
                     event.area_name
                 ]).draw(false).node();
                 

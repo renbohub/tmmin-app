@@ -28,5 +28,38 @@ class AdminController extends Controller
                     ->first();
         return view('pages.v_detail',$data);
     }
+    public function statistic($id){
+        $data['tittle'] = 'Porting - Dashboard';
+        $data['layer'] = DB::table('list_code')
+                          ->where("area_id",$id)
+                          ->get();
+
+        $data['area'] = DB::table('list_area')
+                    ->where("area_id",$id)
+                    ->first();
+        return view('pages.v_statistic',$data);
+    }
+    public function power($id){
+        $data['tittle'] = 'Porting - Dashboard';
+        $data['layer'] = DB::table('list_code')
+                          ->where("area_id",$id)
+                          ->get();
+
+        $data['area'] = DB::table('list_area')
+                    ->where("area_id",$id)
+                    ->first();
+        return view('pages.v_power',$data);
+    }
+    public function report($id){
+        $data['tittle'] = 'Porting - Dashboard';
+        $data['layer'] = DB::table('list_code')
+                          ->where("area_id",$id)
+                          ->get();
+
+        $data['area'] = DB::table('list_area')
+                    ->where("area_id",$id)
+                    ->first();
+        return view('pages.v_report',$data);
+    }
   
 }
