@@ -61,7 +61,8 @@ class AdminController extends Controller
                     ->first();
         $data['event_log'] = DB::table('list_event')
                         ->join("list_area","list_area.area_id","list_event.area_id")
-                        ->where("area_id",$id)
+                        ->join("list_code","list_code.event_code","list_event.event_code")
+                        ->where("list_event.area_id",$id)
                         ->get();
         return view('pages.v_report',$data);
     }
